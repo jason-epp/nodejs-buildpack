@@ -37,7 +37,7 @@ echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 ##echo 'export PATH="$PATH:$HOME/vendor/ffmpeg-release-64bit-static"' >> $PROFILE_PATH
-echo 'export PATH="$PATH:$HOME/vendor/$(ls  /home/vcap/app/vendor"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:$HOME/vendor/$(ls /home/vcap/app/vendor)"' >> $PROFILE_PATH
 ##echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/ffmpeg/lib"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
 cat $PROFILE_PATH
