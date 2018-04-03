@@ -82,6 +82,5 @@ chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
 echo "-----> apt-get"
-apt-get update
 sudo apt-get update
 echo "-----> DONE!!"
