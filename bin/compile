@@ -71,7 +71,7 @@ echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 cd $BUILD_DIR
 cd $VENDOR_DIR
 wget --quiet $DOWNLOAD_URL
-tar xf chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
 rm chromedriver_linux64.zip
 
 echo "exporting PATH and LIBRARY_PATH" | indent
