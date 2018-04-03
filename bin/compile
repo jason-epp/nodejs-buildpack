@@ -51,6 +51,9 @@ cd $BUILD_DIR
 cd $VENDOR_DIR
 wget --quiet $DOWNLOAD_URL
 tar xf ghostscript-9.23-linux-x86_64.tgz
+cd $(basename $(ls -d ghostscript*))
+mv $(basename $(ls gs*)) gs
+cd -
 rm ghostscript-9.23-linux-x86_64.tgz
 
 echo "exporting PATH and LIBRARY_PATH" | indent
