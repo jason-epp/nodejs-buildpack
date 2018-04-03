@@ -39,7 +39,7 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ffmpeg*))"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
-cat $PROFILE_PATH
+##cat $PROFILE_PATH
 
 
 echo "-----> Install ghostscript"
@@ -61,7 +61,7 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/ghostscript.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ghostscript*))"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
-cat $PROFILE_PATH
+##cat $PROFILE_PATH
 
 echo "-----> Install chromedrive"
 DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/chromedriver_linux64.zip"
@@ -79,7 +79,7 @@ PROFILE_PATH="$BUILD_DIR/.profile.d/chromedriver.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/chromedriver*))"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
-cat $PROFILE_PATH
+##cat $PROFILE_PATH
 
 echo "-----> apt-get"
 apt-get update
