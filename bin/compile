@@ -81,6 +81,4 @@ echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/c
 chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
-echo "-----> apt-get"
-sudo apt-get update
 echo "-----> DONE!!"
