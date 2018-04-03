@@ -18,9 +18,10 @@ indent() {
   sed -u 's/^/       /'
 }
 
-echo "-----> Install ffmpeg"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
+
+echo "-----> Install ffmpeg"
 DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/ffmpeg-release-64bit-static.tar.xz"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
@@ -36,8 +37,27 @@ rm ffmpeg-release-64bit-static.tar.xz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-##echo 'export PATH="$PATH:$HOME/vendor/ffmpeg-release-64bit-static"' >> $PROFILE_PATH
-echo 'export PATH="$PATH:$HOME/vendor/$(ls /home/vcap/app/vendor)"' >> $PROFILE_PATH
-##echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/vendor/ffmpeg/lib"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ffmpeg*))"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
 cat $PROFILE_PATH
+
+
+echo "-----> Install ghostscript"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/ghostscript-9.23-linux-x86_64.tgz"
+
+echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
+
+cd $BUILD_DIR
+cd $VENDOR_DIR
+wget $DOWNLOAD_URL
+tar xf ghostscript-9.23-linux-x86_64.tgz
+rm ghostscript-9.23-linux-x86_64.tgz
+
+echo "exporting PATH and LIBRARY_PATH" | indent
+PROFILE_PATH="$BUILD_DIR/.profile.d/ghostscript.sh"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ghostscript*))"' >> $PROFILE_PATH
+chmod 755 $PROFILE_PATH
+cat $PROFILE_PATH
+
+echo "-----> DONE!!"
