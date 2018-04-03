@@ -63,21 +63,21 @@ echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/g
 chmod 755 $PROFILE_PATH
 cat $PROFILE_PATH
 
-echo "-----> Install graphicsmagick"
-DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/GraphicsMagick-1.3.28.tar.gz"
+echo "-----> Install chromedrive"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/chromedriver_linux64.zip"
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 cd $VENDOR_DIR
 wget --quiet $DOWNLOAD_URL
-tar xf GraphicsMagick-1.3.28.tar.gz
-rm GraphicsMagick-1.3.28.tar.gz
+tar xf chromedriver_linux64.zip
+rm chromedriver_linux64.zip
 
 echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/graphicsmagick.sh"
+PROFILE_PATH="$BUILD_DIR/.profile.d/chromedriver.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/graphicsmagick*))"' >> $PROFILE_PATH
+echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/chromedriver*))"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
 cat $PROFILE_PATH
 
