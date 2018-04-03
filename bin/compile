@@ -30,7 +30,7 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 ##curl -L $DOWNLOAD_URL | tar xz
-wget –quiet $DOWNLOAD_URL
+wget --quiet $DOWNLOAD_URL
 tar xf ffmpeg-release-64bit-static.tar.xz
 rm ffmpeg-release-64bit-static.tar.xz
 
@@ -49,7 +49,7 @@ echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 cd $VENDOR_DIR
-wget –quiet $DOWNLOAD_URL
+wget --quiet $DOWNLOAD_URL
 tar xf ghostscript-9.23-linux-x86_64.tgz
 rm ghostscript-9.23-linux-x86_64.tgz
 
@@ -67,7 +67,7 @@ echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 cd $VENDOR_DIR
-wget –quiet $DOWNLOAD_URL
+wget --quiet $DOWNLOAD_URL
 tar xf GraphicsMagick-1.3.28.tar.gz
 rm GraphicsMagick-1.3.28.tar.gz
 
