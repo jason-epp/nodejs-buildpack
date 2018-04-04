@@ -82,8 +82,9 @@ for DEB in $(ls -1 ./deb/*.deb); do
 done
 
 echo  "Writing profile script"
-PROFILE_PATH="$BUILD_DIR/.profile.d/000_apt.sh"
+PROFILE_PATH="$BUILD_DIR/.profile.d/000_myapt.sh"
 cat <<'EOF' >$PROFILE_PATH
+echo hello
 ##export PATH="\$HOME/.apt/usr/bin:\$PATH"
 ##export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
 ##export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LIBRARY_PATH"
@@ -91,7 +92,6 @@ cat <<'EOF' >$PROFILE_PATH
 ##export CPATH="\$INCLUDE_PATH"
 ##export CPPPATH="\$INCLUDE_PATH"
 ##export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:\$PKG_CONFIG_PATH"
-exit
 EOF
 chmod 755 $PROFILE_PATH
 
