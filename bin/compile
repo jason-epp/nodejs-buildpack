@@ -64,7 +64,7 @@ chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
 echo "-----> Install chromedrive"
-DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/deb/"
 wget --quiet $DOWNLOAD_URL"acl_2.2.52-1_amd64.deb"
 
 
