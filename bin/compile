@@ -65,6 +65,7 @@ chmod 755 $PROFILE_PATH
 
 echo "-----> Install chromedriver"
 DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/getPackages.sh"
+wget --quiet $DOWNLOAD_URL
 chmod +x getPackages.sh
 ./getPackages.sh
 echo "-----> DONE!!"
