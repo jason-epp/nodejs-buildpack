@@ -63,10 +63,8 @@ echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/g
 chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
-echo "-----> Install chromedrive"
-DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/deb/"
-wget --quiet $DOWNLOAD_URL"acl_2.2.52-1_amd64.deb"
-
-
-
+echo "-----> Install chromedriver"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/getPackages.sh"
+chmod +x getPackages.sh
+./getPackages.sh
 echo "-----> DONE!!"
