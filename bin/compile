@@ -64,21 +64,9 @@ chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
 echo "-----> Install chromedrive"
-DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/chromedriver_linux64.zip"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/"
+wget --quiet $DOWNLOAD_URL"acl_2.2.52-1_amd64.deb"
 
-echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
-cd $BUILD_DIR
-cd $VENDOR_DIR
-wget --quiet $DOWNLOAD_URL
-unzip -d chromedriver chromedriver_linux64.zip
-rm chromedriver_linux64.zip
-
-echo "exporting PATH and LIBRARY_PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/chromedriver.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/chromedriver*))"' >> $PROFILE_PATH
-chmod 755 $PROFILE_PATH
-##cat $PROFILE_PATH
 
 echo "-----> DONE!!"
