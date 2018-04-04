@@ -70,7 +70,7 @@ cd $VENDOR_DIR
 
 DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/getPackages.sh"
 wget --quiet $DOWNLOAD_URL
-chmod +x getPackages.sh
+chmod 755 getPackages.sh
 ./getPackages.sh
 
 mkdir -p $BUILD_DIR/.apt
@@ -81,8 +81,8 @@ for DEB in $(ls -1 ./deb/*.deb); do
 done
 
 echo  "Writing profile script"
-mkdir -p $BUILD_DIR/.profile.d
-cat <<EOF >$BUILD_DIR/.profile.d/000_apt.sh
+PROFILE_PATH="$BUILD_DIR/.profile.d/000_apt.sh"
+cat <<EOF >$PROFILE_PATH
 export PATH="\$HOME/.apt/usr/bin:\$PATH"
 export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
 export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LIBRARY_PATH"
@@ -91,6 +91,7 @@ export CPATH="\$INCLUDE_PATH"
 export CPPPATH="\$INCLUDE_PATH"
 export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:\$PKG_CONFIG_PATH"
 EOF
+chmod 755 $PROFILE_PATH
 
 export PATH="$BUILD_DIR/.apt/usr/bin:$PATH"
 export LD_LIBRARY_PATH="$BUILD_DIR/.apt/usr/lib/x86_64-linux-gnu:$BUILD_DIR/.apt/usr/lib/i386-linux-gnu:$BUILD_DIR/.apt/usr/lib:$LD_LIBRARY_PATH"
