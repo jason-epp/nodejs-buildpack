@@ -71,9 +71,20 @@ cd $VENDOR_DIR
 
 DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/get-chromedriver-packages.sh"
 wget --quiet $DOWNLOAD_URL
-chmod 755 getPackages.sh
-./getPackages.sh
+chmod 755 get-chromedriver-packages.sh
+./get-chromedriver-packages.sh
 
+echo "-----> Install graphicsmagick"
+
+cd $BUILD_DIR
+cd $VENDOR_DIR
+
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/get-graphicsmagick-packages.sh"
+wget --quiet $DOWNLOAD_URL
+chmod 755 get-graphicsmagick-packages.sh
+./get-graphicsmagick-packages.sh
+
+echo "-----> extracting packages"
 mkdir -p $BUILD_DIR/.apt
 
 for DEB in $(ls -1 ./deb/*.deb); do
