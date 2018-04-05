@@ -84,6 +84,17 @@ wget --quiet $DOWNLOAD_URL
 chmod 755 get-graphicsmagick-packages.sh
 ./get-graphicsmagick-packages.sh
 
+echo "-----> Install python"
+
+cd $BUILD_DIR
+cd $VENDOR_DIR
+
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/get-python-packages.sh"
+wget --quiet $DOWNLOAD_URL
+chmod 755 get-python-packages.sh
+./get-python-packages.sh
+
+
 echo "-----> extracting packages"
 mkdir -p $BUILD_DIR/.apt
 
