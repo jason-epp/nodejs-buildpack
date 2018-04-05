@@ -38,7 +38,7 @@ rm ffmpeg-release-64bit-static.tar.xz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/1_ffmpeg.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ffmpeg*))"' >> $PROFILE_PATH
+echo 'export PATH="$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ffmpeg*)):$PATH"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
@@ -60,7 +60,7 @@ rm ghostscript-9.23-linux-x86_64.tgz
 echo "exporting PATH and LIBRARY_PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/1_ghostscript.sh"
 mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ghostscript*))"' >> $PROFILE_PATH
+echo 'export PATH="$HOME/vendor/$(basename $(ls -d /home/vcap/app/vendor/ghostscript*)):$PATH"' >> $PROFILE_PATH
 chmod 755 $PROFILE_PATH
 ##cat $PROFILE_PATH
 
@@ -99,7 +99,7 @@ echo  "Writing profile script"
 PROFILE_PATH="$BUILD_DIR/.profile.d/000_myapt.sh"
 cat <<'EOF' >$PROFILE_PATH
 echo hello
-export PATH="$HOME/.apt/usr/bin:$HOME/.apt/usr/lib/chromium-browser:$HOME/.apt/usr/bin:$PATH"
+export PATH="$PATH:$HOME/.apt/usr/lib/chromium-browser:$HOME/.apt/usr/bin"
 export LD_LIBRARY_PATH="$HOME/.apt/usr/lib/chromium-browser:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/.apt/usr/lib/i386-linux-gnu:$HOME/.apt/usr/lib:$LD_LIBRARY_PATH"
 export LIBRARY_PATH="$HOME/.apt/usr/lib/chromium-browser:$HOME/.apt/usr/lib/x86_64-linux-gnu:$HOME/.apt/usr/lib/i386-linux-gnu:$HOME/.apt/usr/lib:$LIBRARY_PATH"
 export INCLUDE_PATH="$HOME/.apt/usr/include:$INCLUDE_PATH"
