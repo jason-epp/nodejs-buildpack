@@ -69,7 +69,7 @@ echo "-----> Install chromedriver"
 cd $BUILD_DIR
 cd $VENDOR_DIR
 
-DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/getPackages.sh"
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/get-chromedriver-packages.sh"
 wget --quiet $DOWNLOAD_URL
 chmod 755 getPackages.sh
 ./getPackages.sh
