@@ -84,7 +84,7 @@ wget --quiet $DOWNLOAD_URL
 chmod 755 get-graphicsmagick-packages.sh
 ./get-graphicsmagick-packages.sh
 
-echo "-----> Install python"
+echo "-----> Install python-software-properties"
 
 cd $BUILD_DIR
 cd $VENDOR_DIR
@@ -94,6 +94,15 @@ wget --quiet $DOWNLOAD_URL
 chmod 755 get-python-packages.sh
 ./get-python-packages.sh
 
+echo "-----> Install software-properties-common"
+
+cd $BUILD_DIR
+cd $VENDOR_DIR
+
+DOWNLOAD_URL="https://s3.amazonaws.com/json-public-main/packages/ckm/get-software-properties-common-packages.sh"
+wget --quiet $DOWNLOAD_URL
+chmod 755 get-software-properties-common-packages.sh
+./get-software-properties-common-packages.sh
 
 echo "-----> extracting packages"
 mkdir -p $BUILD_DIR/.apt
